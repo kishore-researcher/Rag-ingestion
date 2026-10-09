@@ -1,0 +1,81 @@
+%PDF-1.5
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 479 >>
+stream
+BT /F1 14 Tf
+1 0 0 1 72 720 Tm <00240051005100580044004F000300350048005300520055005700030015001300150019> Tj
+1 0 0 1 72 690 Tm <00350048005900480051005800480003004A00550048005A000300140015000300530048005500460048005100570003005C004800440055000300520059004800550003005C0048004400550011> Tj
+1 0 0 1 72 670 Tm <003200530048005500440057004C0051004A0003005000440055004A004C00510003004C00500053005500520059004800470003005200510003004F0052005A004800550003004600520056005700560011> Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type0 /BaseFont /ABCDEF+Sub /Encoding /Identity-H /DescendantFonts [6 0 R] /ToUnicode 7 0 R >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /CIDFontType2 /BaseFont /ABCDEF+Sub /CIDSystemInfo << /Registry (Adobe) /Ordering (Identity) /Supplement 0 >> /DW 500 >>
+endobj
+7 0 obj
+<< /Length 567 >>
+stream
+/CIDInit /ProcSet findresource begin 12 dict begin begincmap
+/CMapName /Adobe-Identity-UCS def
+1 begincodespacerange
+<0000> <FFFF>
+endcodespacerange
+27 beginbfchar
+<0003> <0020>
+<0011> <002E>
+<0013> <0030>
+<0014> <0031>
+<0015> <0032>
+<0019> <0036>
+<0024> <0041>
+<0032> <004F>
+<0035> <0052>
+<0044> <0061>
+<0046> <0063>
+<0047> <0064>
+<0048> <0065>
+<004A> <0067>
+<004C> <0069>
+<004F> <006C>
+<0050> <006D>
+<0051> <006E>
+<0052> <006F>
+<0053> <0070>
+<0055> <0072>
+<0056> <0073>
+<0057> <0074>
+<0058> <0075>
+<0059> <0076>
+<005A> <0077>
+<005C> <0079>
+endbfchar
+endcmap end end
+endstream
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000771 00000 n 
+0000000906 00000 n 
+0000001066 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+1684
+%%EOF
