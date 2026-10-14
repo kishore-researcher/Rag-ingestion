@@ -94,7 +94,7 @@ Evaluated against complex, real-world public institution and corporate annual re
 
 ## 🏗 Architecture
 
-
+```
 ┌────────────────────────────────────────┐
 │       Incoming PDF (HTTP Stream)              │
 └───────────────────┬────────────────────┘
@@ -130,7 +130,7 @@ Evaluated against complex, real-world public institution and corporate annual re
 ┌────────────────────────────────────────┐
 │  Streamed NDJSON (Chunks & Fidelity)          │
 └────────────────────────────────────────┘
-
+```
 ---
 
 ## 🚀 Quick Start
@@ -141,30 +141,35 @@ Evaluated against complex, real-world public institution and corporate annual re
 * *(Optional)* **PostgreSQL** with `pgvector` extension
 
 ### 1. Build the Rust Engine
+```
 cd rust-core
 cargo build --release
 cargo test --release   # 64 unit tests validating CMaps, XObjects, tables, & layout
-
+```
 2. Run the High-Performance Daemon
 To eliminate process spawn overhead and retain the compiled BPE tokenizer in memory:
+```
 ./target/release/rag_ingestion_core --daemon /tmp/rag_core.sock &
-
+```
 3. Launch the Go Microservice
+```
 cd ../go-orchestrator
 go build -o orchestrator .
-
+```
 # Configure socket path and start server
+```
 RUST_DAEMON_SOCKET=/tmp/rag_core.sock \
 RUST_CORE_PATH=../rust-core/target/release/rag_ingestion_core \
 TENANT_API_KEYS="tenant-alpha=prod-key-1,tenant-beta=prod-key-2" \
 ./orchestrator
-
+```
 4. Process a Document
+```
 curl -X POST http://localhost:8080/ingest \
   -H "X-API-Key: prod-key-1" \
   -F "file=@/path/to/annual_report.pdf" \
   -F "document_id=annual_report_2025"
-
+```
 The response streams newline-delimited JSON (application/x-ndjson):
 {"type":"page_fidelity","page":1,"score":0.96,"retained_chars":2410,"quality":"passed"}
 {"type":"chunk","chunk_id":0,"tokens":384,"hierarchy":["State University of New York","MD&A"],"content":"..."}
@@ -172,6 +177,7 @@ The response streams newline-delimited JSON (application/x-ndjson):
 
 🖥 Enterprise Admin & Observability
 Aerolith includes an embedded, single-binary administrative interface served directly at http://localhost:8080/dashboard.
+```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
 │ Aerolith Ingestion Console                                           [ Tenant: alpha ]                 │
 ├────────────────────────────────────────────────────────────────────────────────────────┤
@@ -185,9 +191,9 @@ Aerolith includes an embedded, single-binary administrative interface served dir
 │  Page 13    [■■■■■■■■░░] 0.81  WARNING  (Table header span detected)                                │
 │  Page 14-73 [■■■■■■■■■■] 0.96  PASSED                                                               │
 │                                                                                                        │
-│  Export Target: PostgreSQL (pgvector)                                  [ Export Now ]                  │
+│  Export Target: PostgreSQL (pgvector), Pinecone, Qdrant                [ Export Now ]                  │
 └────────────────────────────────────────────────────────────────────────────────────────┘
-
+```
  * Live Ingestion Monitor: Reads the /ingest NDJSON stream in real time via an embedded line-buffered parser.
  * Audit & Quarantine API (/api/v1/quarantine): Human-in-the-loop review interface. Pages flagged with lower structural fidelity can be audited, corrected in Markdown, and approved before entering the vector store.
  * Multi-Tenant Document Store (docstore.go): Writes partitioned data packages per tenant:
@@ -208,8 +214,9 @@ Aerolith includes an embedded, single-binary administrative interface served dir
  * [ ] Multi-Page Table Stitching: Geometric continuity tracking to merge tables spanning page boundaries into unified chunks.
  * [ ] Scanned Document Circuit Breaker: Instant rejection/quarantine for pure raster scans lacking native text layers.
 
-📄 License
-Licensed under the Apache License, Version 2.0. See LICENSE for details.
+### 📄 License
+> **Warning:** This repository contains personal / proprietary code. 
+> It is **not** open source. You do not have permission to copy, reuse, distribute, or modify this code without explicit written consent.
 
 ***
 
@@ -220,5 +227,5 @@ Licensed under the Apache License, Version 2.0. See LICENSE for details.
 4. **Clean ASCII Visuals:** Added clean UI and architecture schematics that look sharp in GitHub's markdown renderer.
 
 
-Contact: contact@kishore.buzz
-Portfolio: Kishore.buzz
+**Contact: contact@kishore.buzz**
+**Portfolio: Kishore.buzz**
