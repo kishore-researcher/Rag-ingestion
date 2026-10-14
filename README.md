@@ -167,17 +167,18 @@ TENANT_API_KEYS="tenant-alpha=prod-key-1,tenant-beta=prod-key-2" \
 ```
 curl -X POST http://localhost:8080/ingest \
   -H "X-API-Key: prod-key-1" \
-  -F "file=@/path/to/annual_report.pdf" \
-  -F "document_id=annual_report_2025"
+  -F "file=@/path/to/testdata/test_financial_report.pdf" \
+  -F "document_id=test_financial_report.pdf"
 ```
 The response streams newline-delimited JSON (application/x-ndjson):
+```
 {"type":"page_fidelity","page":1,"score":0.96,"retained_chars":2410,"quality":"passed"}
 {"type":"chunk","chunk_id":0,"tokens":384,"hierarchy":["State University of New York","MD&A"],"content":"..."}
 {"type":"summary","total_pages":73,"total_chunks":142,"latency_ms":284}
-
-🖥 Enterprise Admin & Observability
-Aerolith includes an embedded, single-binary administrative interface served directly at http://localhost:8080/dashboard.
 ```
+🖥 Enterprise Admin & Observability
+```
+Aerolith includes an embedded, single-binary administrative interface served directly at http://localhost:8080/dashboard.
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
 │ Aerolith Ingestion Console                                           [ Tenant: alpha ]                 │
 ├────────────────────────────────────────────────────────────────────────────────────────┤
@@ -227,5 +228,5 @@ Aerolith includes an embedded, single-binary administrative interface served dir
 4. **Clean ASCII Visuals:** Added clean UI and architecture schematics that look sharp in GitHub's markdown renderer.
 
 
-**Contact: contact@kishore.buzz**
-**Portfolio: Kishore.buzz**
+**Contact: contact@kishore.buzz**   
+**Portfolio: www.kishore.buzz**
